@@ -1,8 +1,14 @@
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
-export const Container = styled(TouchableOpacity)`
-  width: 137px;
+export type CardListSizeProps = "normal" | "large";
+
+type Props = {
+  sizeType: CardListSizeProps;
+};
+
+export const Container = styled(TouchableOpacity)<Props>`
+  width: ${({ sizeType }) => (sizeType === "large" ? "171px" : "137px")};
   height: 148px;
   justify-content: center;
   align-items: center;
@@ -32,4 +38,3 @@ export const Footer = styled.View`
   padding: 8px;
   text-align: left;
 `;
-

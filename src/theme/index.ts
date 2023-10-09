@@ -26,6 +26,7 @@ export const THEME = extendTheme({
   },
   fontSizes: {
     xs: 12,
+    s: 13,
     sm: 14,
     md: 16,
     lg: 18,

@@ -1,15 +1,23 @@
-import { Container, Footer, ImgBolo } from "./styles";
+import { CardListSizeProps, Container, Footer, ImgBolo } from "./styles";
 
 import foto from "@assets/boloaniversario.png";
 import { Text, Image } from "native-base";
 
-export function CardList() {
+type Props = {
+  size?: CardListSizeProps;
+};
+
+export function CardList({ size= "normal" }: Props) {
   return (
-    <Container>
-      <Image source={foto} w="full" h="50%" resizeMode="cover" />
+    <Container sizeType={size}>
+      <Image source={foto} w="full" h="50%" resizeMode="cover" alt="bolos" />
       <Footer>
-        <Text color="gray.600" fontSize="xs" textAlign="left">Título do produto</Text>
-        <Text color="gray.600" fontSize="xs" fontFamily="heading">R$ 100</Text>
+        <Text color="gray.600" fontSize="s" textAlign="left">
+          Título do produto
+        </Text>
+        <Text color="gray.600" fontSize="sm" fontFamily="heading">
+          R$ 100
+        </Text>
       </Footer>
     </Container>
   );
