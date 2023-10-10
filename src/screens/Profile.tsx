@@ -1,24 +1,10 @@
-import {
-  VStack,
-  HStack,
-  Heading,
-  Text,
-  Box,
-  Image,
-  Icon,
-  FlatList,
-  ScrollView,
-} from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { VStack, HStack, Text, FlatList, ScrollView } from "native-base";
 
-import { Button } from "@components/Button";
 import { CardHome } from "@components/CardHome";
 import { CardList } from "@components/CardList";
 
-import chefeIllustration from "@assets/chefe.png";
 import { NavBar } from "@components/NavBar";
 import { UserPhoto } from "@components/UserPhoto";
-import { GridProfile } from "@components/GridProfile";
 
 export function Profile() {
   return (
@@ -50,7 +36,7 @@ export function Profile() {
                     { key: "item3", text: "Item 3" },
                   ]}
                   keyExtractor={(item) => item.key}
-                  renderItem={({ item }) => <CardList size="large" />}
+                  renderItem={({ item }) => <CardList />}
                   numColumns={2}
                   h={80}
                   pt={4}
@@ -59,24 +45,22 @@ export function Profile() {
               </VStack>
             </CardHome>
             <CardHome title="Seus Ingredientes" subtitle="Filtrar">
-              <ScrollView>
-                <VStack>
-                  <FlatList
-                    data={[
-                      { key: "item1", text: "Item 1" },
-                      { key: "item2", text: "Item 2" },
-                      { key: "item3", text: "Item 3" },
-                    ]}
-                    keyExtractor={(item) => item.key}
-                    renderItem={({ item }) => <CardList size="large" />}
-                    numColumns={2}
-                    h={96}
-                    pt={8}
-                    mb={8}
-                    showsHorizontalScrollIndicator={false}
-                  />
-                </VStack>
-              </ScrollView>
+              <VStack>
+                <FlatList
+                  data={[
+                    { key: "item1", text: "Item 1" },
+                    { key: "item2", text: "Item 2" },
+                    { key: "item3", text: "Item 3" },
+                  ]}
+                  keyExtractor={(item) => item.key}
+                  renderItem={({ item }) => <CardList />}
+                  numColumns={2}
+                  h={96}
+                  pt={8}
+                  mb={8}
+                  showsHorizontalScrollIndicator={false}
+                />
+              </VStack>
             </CardHome>
           </VStack>
         </VStack>

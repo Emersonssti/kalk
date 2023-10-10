@@ -7,7 +7,11 @@ import Profile from "@assets/user.svg";
 import { useNavigation } from "@react-navigation/native";
 import { AuthNavigatorRoutesProps } from "@routes/AuthRoutes";
 
-export function NavBar() {
+type Props = {
+  onCreate?: () => void;
+};
+
+export function NavBar({onCreate} : Props) {
   const { colors } = useTheme();
   const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
@@ -30,7 +34,7 @@ export function NavBar() {
       <TouchableOpacity onPress={() => navigation.navigate("home")}>
         <HomeSvg stroke={colors.green[500]} width={40} height={40} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onCreate}>
         <AddSvg />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("profile")}>

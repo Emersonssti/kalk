@@ -17,13 +17,13 @@ export default function App() {
     Montserrat_700Bold,
   });
   return (
-    <NativeBaseProvider theme={THEME} >
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fontsLoaded ? <Routes /> : <Loading />}
+    <NativeBaseProvider theme={THEME}>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        {fontsLoaded ? <Routes /> : <Loading />}
     </NativeBaseProvider>
   );
 }
