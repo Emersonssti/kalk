@@ -22,7 +22,6 @@ import { Button } from "@components/Button";
 import { CardHome } from "@components/CardHome";
 import { CardList } from "@components/CardList";
 import { UserPhoto } from "@components/UserPhoto";
-import { Input } from "@components/Input";
 
 import chefeIllustration from "@assets/chefe.png";
 import { NavBar } from "@components/NavBar";
@@ -31,7 +30,6 @@ import { Modalize } from "react-native-modalize";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { Form } from "@components/Form";
-import { useFocusEffect } from "@react-navigation/native";
 import { Loading } from "@components/Loading";
 
 export function Home() {
@@ -92,6 +90,7 @@ export function Home() {
   }
 
   if (loading) return <Loading />;
+
   return (
     <>
       <GestureHandlerRootView>
@@ -148,7 +147,7 @@ export function Home() {
                 <FlatList
                   data={["1", "2", "3", "4", "5"]}
                   keyExtractor={(item) => item}
-                  renderItem={({ item }) => <CardList />}
+                  renderItem={({ item }) => <CardList size={32} />}
                   horizontal
                   showsHorizontalScrollIndicator={false}
                 />
@@ -157,7 +156,7 @@ export function Home() {
                 <FlatList
                   data={["1", "2", "3", "4", "5"]}
                   keyExtractor={(item) => item}
-                  renderItem={({ item }) => <CardList />}
+                  renderItem={({ item }) => <CardList size={32} />}
                   horizontal
                   showsHorizontalScrollIndicator={false}
                 />
@@ -166,7 +165,7 @@ export function Home() {
                 <FlatList
                   data={["1", "2", "3", "4", "5"]}
                   keyExtractor={(item) => item}
-                  renderItem={({ item }) => <CardList />}
+                  renderItem={({ item }) => <CardList size={32} />}
                   horizontal
                   showsHorizontalScrollIndicator={false}
                 />

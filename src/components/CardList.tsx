@@ -1,12 +1,16 @@
 import { Text, Image, VStack } from "native-base";
 import foto from "@assets/boloaniversario.png";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-export function CardList() {
+type Props = TouchableOpacityProps & {
+  size: 32 | 45;
+};
+
+export function CardList({ size }: Props) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={{ marginTop: 10 }}>
       <VStack
-        w={32}
+        w={size}
         h={32}
         rounded="lg"
         mx={3}
