@@ -13,7 +13,8 @@ export function CardList({ size }: Props) {
         w={size}
         h={32}
         rounded="lg"
-        mx={3}
+        mx={2}
+        my={2}
         overflow="hidden"
         borderWidth={0.1}
       >

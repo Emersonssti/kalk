@@ -17,7 +17,7 @@ import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { TouchableOpacity } from "react-native";
 
-export function FormCreate() {
+export function FormCreateReceita() {
   const [service, setService] = useState("");
 
   return (
@@ -27,15 +27,20 @@ export function FormCreate() {
           <Text fontSize="lg" mb={2}>
             Titulo da Receita
           </Text>
-          <Input mb={4} placeholder="CEP" />
+          <Input mb={4} placeholder="Titulo da Receita" />
           <Text fontSize="lg" mb={2}>
             Descrição
           </Text>
           <TextArea
             mb={2}
             autoCompleteType={undefined}
-            placeholder={"Digite aquu.."}
+            placeholder={"Digite aqui.."}
             rounded="md"
+            _focus={{
+              bg: "white",
+              borderWidth: 1,
+              borderColor: "blue.300",
+            }}
           />
           <Text fontSize="lg" mb={6}>
             Ingredientes
@@ -44,7 +49,6 @@ export function FormCreate() {
             data={[
               { name: "Farinha de trigo - 300g", price: "R$2,57" },
               { name: "Ovo - 3 uni.", price: "R$1,80" },
-              { name: "Manteiga", price: "R$5,80" },
             ]}
             keyExtractor={(item) => item.name}
             renderItem={({ item }) => (
@@ -74,11 +78,11 @@ export function FormCreate() {
         </VStack>
       </HStack>
       <HStack w={'full'} px={8} space={2} my={4} alignItems="center" justifyContent="space-between">
-        <VStack >
+        <VStack mt={4}>
           <Text fontSize="md">Valor total</Text>
           <Text fontSize="l">R$ 4,37</Text>
         </VStack>
-        <Button mt={8} w={32} title="Salvar" />
+        <Button variant="blue" mt={8} w={32} title="Salvar" />
       </HStack>
     </Center>
   );

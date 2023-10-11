@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Platform } from 'react-native'
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
   VStack,
@@ -31,6 +32,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { FormAccount } from "@components/FormAccount";
 import { Loading } from "@components/Loading";
+import { ModalCreate } from "@components/modalCreate";
 
 export function Home() {
   const [loading, setLoading] = useState(false);
@@ -41,8 +43,12 @@ export function Home() {
   const [service, setService] = useState("");
   const PHOTO_SIZE = 14;
   const toast = useToast();
-
+  const modalizeRefCreate = useRef<Modalize>(null);
   const modalizeRef = useRef<Modalize>(null);
+
+  const onOpenCreate = () => {
+    modalizeRefCreate.current?.open();
+  };
 
   const onOpen = () => {
     modalizeRef.current?.open();
@@ -53,6 +59,7 @@ export function Home() {
     setTimeout(() => {
       setLoading(false);
     }, 500);
+    modalizeRef.current?.open();
   }, []);
 
   async function handleUserPhotoSelect() {
@@ -139,7 +146,7 @@ export function Home() {
                     />
                     <Text>2. Crie suas receitas favoritas</Text>
                   </HStack>
-                  <Button mt={2} mr="auto" title={"Criar Receita"} />
+                  <Button onPress={onOpenCreate} mt={4} w={24} mr="auto" title={"Criar Receita"} />
                 </VStack>
                 <Image source={chefeIllustration} alt="ilustração" size={24} />
               </Box>
@@ -173,7 +180,7 @@ export function Home() {
             </VStack>
           </VStack>
         </ScrollView>
-        <NavBar onCreate={onOpen} />
+        <NavBar onCreate={onOpenCreate} />
         <KeyboardAvoidingView>
           <Modalize
             ref={modalizeRef}
@@ -207,7 +214,7 @@ export function Home() {
                   mb={8}
                   px={12}
                 >
-                  <Text color="green.500" fontSize="sm">
+                  <Text color="blue.500" fontSize="sm">
                     Alterar Foto
                   </Text>
                 </Pressable>
@@ -216,6 +223,7 @@ export function Home() {
             </VStack>
           </Modalize>
         </KeyboardAvoidingView>
+        <ModalCreate modalizeRef={modalizeRefCreate} />
       </GestureHandlerRootView>
     </>
   );

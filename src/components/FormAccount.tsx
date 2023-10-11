@@ -43,7 +43,7 @@ export function FormAccount() {
           <Input maxWidth="16" placeholder="UF" />
         </HStack>
       </HStack>
-      <Button mt={8} w={32} title="Salvar" />
+      <Button variant={"blue"} mt={8} w={32} title="Salvar" />
     </Center>
   );
 }
