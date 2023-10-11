@@ -3,11 +3,22 @@ import { VStack, HStack, Text, FlatList, ScrollView } from "native-base";
 
 import { CardHome } from "@components/CardHome";
 import { CardList } from "@components/CardList";
+import { Modalize } from "react-native-modalize";
 
 import { NavBar } from "@components/NavBar";
 import { UserPhoto } from "@components/UserPhoto";
+import React, { useRef } from "react";
+import { KeyboardAvoidingView } from "react-native";
+import { FormCreate } from "@components/FormCreate";
+import { Button } from "@components/Button";
 
 export function Profile() {
+  const modalizeRef = useRef<Modalize>(null);
+
+  const onOpen = () => {
+    modalizeRef.current?.open();
+  };
+
   return (
     <>
       <GestureHandlerRootView>
@@ -66,8 +77,30 @@ export function Profile() {
             </VStack>
           </VStack>
         </ScrollView>
+        <NavBar onCreate={() => onOpen()} />
+        <KeyboardAvoidingView>
+          <Modalize
+            ref={modalizeRef}
+            HeaderComponent={
+              <HStack py={4} px={8} justifyContent="space-between" alignItems="center">
+
+              <Text textAlign="center" fontSize="l">
+                Criar
+              </Text>
+              <HStack space={2}>
+                <Button variant="outline" w={24} title="Receita" />
+                <Button w={28} title="Ingrediente"/>
+              </HStack>
+              </HStack>
+            }
+            modalHeight={600}
+          >
+            <VStack>
+              <FormCreate />
+            </VStack>
+          </Modalize>
+        </KeyboardAvoidingView>
       </GestureHandlerRootView>
-      <NavBar />
     </>
   );
 }

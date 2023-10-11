@@ -29,7 +29,7 @@ import { Modalize } from "react-native-modalize";
 
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
-import { Form } from "@components/Form";
+import { FormAccount } from "@components/FormAccount";
 import { Loading } from "@components/Loading";
 
 export function Home() {
@@ -141,7 +141,7 @@ export function Home() {
                   </HStack>
                   <Button mt={2} mr="auto" title={"Criar Receita"} />
                 </VStack>
-                <Image source={chefeIllustration} size={24} />
+                <Image source={chefeIllustration} alt="ilustração" size={24} />
               </Box>
               <CardHome title="Todas as Receitas">
                 <FlatList
@@ -174,7 +174,7 @@ export function Home() {
           </VStack>
         </ScrollView>
         <NavBar onCreate={onOpen} />
-        <KeyboardAvoidingView behavior="position">
+        <KeyboardAvoidingView>
           <Modalize
             ref={modalizeRef}
             HeaderComponent={
@@ -212,7 +212,7 @@ export function Home() {
                   </Text>
                 </Pressable>
               </Center>
-              <Form />
+              <FormAccount />
             </VStack>
           </Modalize>
         </KeyboardAvoidingView>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Center, HStack, Select, CheckIcon } from "native-base";
+import { Center, HStack, Select, CheckIcon, Text } from "native-base";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 
-export function Form() {
+export function FormAccount() {
   const [service, setService] = useState("");
 
   return (
@@ -15,6 +15,7 @@ export function Form() {
           selectedValue={service}
           minWidth="130"
           rounded={"full"}
+          h={8}
           accessibilityLabel="Choose Service"
           placeholder="Genero"
           _selectedItem={{
@@ -30,13 +31,19 @@ export function Form() {
         </Select>
       </HStack>
       <HStack alignItems="center" w={"full"} px={8} mt={4}>
-        <HStack alignItems="center" w={"full"} space={2} flex={1}>
+        <HStack
+          alignItems="center"
+          justifyContent="space-between"
+          w={"full"}
+          space={2}
+          flex={1}
+        >
           <Input maxWidth="100" placeholder="CEP" />
-          <Input maxWidth="130" placeholder="Cidade" />
+          <Input maxWidth="150" placeholder="Cidade" />
+          <Input maxWidth="16" placeholder="UF" />
         </HStack>
-        <Input maxWidth="16" placeholder="UF" />
       </HStack>
-      <Button mt={8} title="Salvar" />
+      <Button mt={8} w={32} title="Salvar" />
     </Center>
   );
 }
