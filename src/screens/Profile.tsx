@@ -8,8 +8,8 @@ import { Modalize } from "react-native-modalize";
 import { NavBar } from "@components/NavBar";
 import { UserPhoto } from "@components/UserPhoto";
 import React, { useRef } from "react";
-import { KeyboardAvoidingView } from "react-native";
-import { ModalCreate } from "@components/modalCreate";
+import { KeyboardAvoidingView, Platform } from "react-native";
+import { ModalCreate } from "@components/ModalCreate";
 
 export function Profile() {
   const modalizeRef = useRef<Modalize>(null);
@@ -70,7 +70,15 @@ export function Profile() {
         </VStack>
       </VStack>
       <NavBar onCreate={() => onOpen()} />
-      <ModalCreate modalizeRef={modalizeRef} />
+      {Platform.OS === "ios" ? (
+        <KeyboardAvoidingView behavior="position">
+          <ModalCreate modalizeRef={modalizeRef} />
+        </KeyboardAvoidingView>
+      ) : (
+        <KeyboardAvoidingView behavior="position">
+          <ModalCreate modalizeRef={modalizeRef} />
+        </KeyboardAvoidingView>
+      )}
     </GestureHandlerRootView>
   );
 }

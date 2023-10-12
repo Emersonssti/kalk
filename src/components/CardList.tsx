@@ -1,6 +1,7 @@
 import { Text, Image, VStack } from "native-base";
-import foto from "@assets/boloaniversario.png";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
+
+import foto from "@assets/boloaniversario.png";
 
 type Props = TouchableOpacityProps & {
   size: 32 | 45;

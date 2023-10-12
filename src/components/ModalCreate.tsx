@@ -47,7 +47,7 @@ export function ModalCreate({modalizeRef}: Props) {
           <Text textAlign="center" fontSize="l">
             Criar
           </Text>
-          <HStack marginBottom={8} space={2}>
+          <HStack  space={2}>
             <Button
               onPress={handleCreateReceita}
               variant={variantReceita}
@@ -63,11 +63,11 @@ export function ModalCreate({modalizeRef}: Props) {
           </HStack>
         </HStack>
       }
-      snapPoint={height / 1.2}
-      modalHeight={height / 1.2}
+      snapPoint={height / 1.4}
+      modalHeight={height / 1.4}
     >
       <VStack pb={8}>
-        {pressedReceita ? <FormCreateReceita /> : <FormCreateIngrediente />}
+        {pressedReceita ? <FormCreateReceita onCloseModal={() => modalizeRef.current?.close()}/> : <FormCreateIngrediente />}
       </VStack>
     </Modalize>
   );

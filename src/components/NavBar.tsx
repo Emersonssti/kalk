@@ -5,7 +5,7 @@ import HomeSvg from "@assets/home.svg";
 import AddSvg from "@assets/plus-circle.svg";
 import Profile from "@assets/user.svg";
 import { useNavigation } from "@react-navigation/native";
-import { AuthNavigatorRoutesProps } from "@routes/AuthRoutes";
+import { AuthNavigatorRoutesProps } from "src/routes/AppRoutes";
 
 type Props = {
   onCreate?: () => void;

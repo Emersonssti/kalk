@@ -11,11 +11,9 @@ import {
   Icon,
 } from "native-base";
 
-import { MaterialIcons } from "@expo/vector-icons";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
-import { TouchableOpacity } from "react-native";
 
 export function FormCreateIngrediente() {
   const [service, setService] = useState("");

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Platform } from 'react-native'
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
   VStack,
@@ -11,9 +10,6 @@ import {
   Icon,
   FlatList,
   ScrollView,
-  Center,
-  Pressable,
-  Skeleton,
   useToast,
   KeyboardAvoidingView,
 } from "native-base";
@@ -22,27 +18,18 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Button } from "@components/Button";
 import { CardHome } from "@components/CardHome";
 import { CardList } from "@components/CardList";
-import { UserPhoto } from "@components/UserPhoto";
 
 import chefeIllustration from "@assets/chefe.png";
 import { NavBar } from "@components/NavBar";
 import { Modalize } from "react-native-modalize";
 
-import * as ImagePicker from "expo-image-picker";
-import * as FileSystem from "expo-file-system";
-import { FormAccount } from "@components/FormAccount";
 import { Loading } from "@components/Loading";
-import { ModalCreate } from "@components/modalCreate";
+import { ModalCreate } from "@components/ModalCreate";
+import { Platform } from "react-native";
+import { ModalDataUsers } from "@components/ModalDataUsers";
 
 export function Home() {
   const [loading, setLoading] = useState(false);
-  const [photoLoading, setPhotoIsLoading] = useState(false);
-  const [userPhoto, setUserPhoto] = useState<any>(
-    "https://github.com/ramonnrocha.png"
-  );
-  const [service, setService] = useState("");
-  const PHOTO_SIZE = 14;
-  const toast = useToast();
   const modalizeRefCreate = useRef<Modalize>(null);
   const modalizeRef = useRef<Modalize>(null);
 
@@ -50,51 +37,9 @@ export function Home() {
     modalizeRefCreate.current?.open();
   };
 
-  const onOpen = () => {
-    modalizeRef.current?.open();
-  };
-
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
     modalizeRef.current?.open();
   }, []);
-
-  async function handleUserPhotoSelect() {
-    setPhotoIsLoading(true);
-    try {
-      const photoSelected = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 1,
-        aspect: [4, 4],
-        allowsEditing: true,
-      });
-
-      if (photoSelected.canceled) {
-        return;
-      }
-
-      if (photoSelected.assets[0].uri) {
-        const photoInfo = await FileSystem.getInfoAsync(
-          photoSelected.assets[0].uri
-        );
-        if (photoInfo.exists && photoInfo.size / 1024 / 1024 > 5) {
-          return toast.show({
-            title: "Essa imagem é muito grande. Escolha uma de até 5MB",
-            placement: "top",
-            bgColor: "red.500",
-          });
-        }
-        setUserPhoto(photoSelected.assets[0].uri);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setPhotoIsLoading(false);
-    }
-  }
 
   if (loading) return <Loading />;
 
@@ -146,7 +91,13 @@ export function Home() {
                     />
                     <Text>2. Crie suas receitas favoritas</Text>
                   </HStack>
-                  <Button onPress={onOpenCreate} mt={4} w={24} mr="auto" title={"Criar Receita"} />
+                  <Button
+                    onPress={onOpenCreate}
+                    mt={4}
+                    w={24}
+                    mr="auto"
+                    title={"Criar Receita"}
+                  />
                 </VStack>
                 <Image source={chefeIllustration} alt="ilustração" size={24} />
               </Box>
@@ -181,49 +132,19 @@ export function Home() {
           </VStack>
         </ScrollView>
         <NavBar onCreate={onOpenCreate} />
-        <KeyboardAvoidingView>
-          <Modalize
-            ref={modalizeRef}
-            HeaderComponent={
-              <Text textAlign="center" fontSize="lg" pt={8}>
-                Dados Necessários
-              </Text>
-            }
-            modalHeight={400}
-          >
-            <VStack>
-              <Center my={3} px={8}>
-                {photoLoading ? (
-                  <Skeleton
-                    w={PHOTO_SIZE}
-                    h={PHOTO_SIZE}
-                    rounded={"full"}
-                    startColor="gray.500"
-                    endColor="gray.400"
-                  />
-                ) : (
-                  <UserPhoto
-                    source={{ uri: userPhoto }}
-                    alt="Foto do usuário"
-                    size={PHOTO_SIZE}
-                  />
-                )}
-                <Pressable
-                  onPress={handleUserPhotoSelect}
-                  mt={2}
-                  mb={8}
-                  px={12}
-                >
-                  <Text color="blue.500" fontSize="sm">
-                    Alterar Foto
-                  </Text>
-                </Pressable>
-              </Center>
-              <FormAccount />
-            </VStack>
-          </Modalize>
-        </KeyboardAvoidingView>
-        <ModalCreate modalizeRef={modalizeRefCreate} />
+        {Platform.OS === "ios" ? (
+          <KeyboardAvoidingView behavior="position" flex={1}>
+            <ModalDataUsers modalizeRef={modalizeRef} />
+            <ModalCreate modalizeRef={modalizeRefCreate} />
+          </KeyboardAvoidingView>
+        ) : (
+          <>
+            <KeyboardAvoidingView>
+              <ModalDataUsers modalizeRef={modalizeRef} />
+              <ModalCreate modalizeRef={modalizeRefCreate} />
+            </KeyboardAvoidingView>
+          </>
+        )}
       </GestureHandlerRootView>
     </>
   );

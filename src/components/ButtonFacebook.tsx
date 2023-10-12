@@ -1,5 +1,3 @@
-import { Button, IButtonProps, Icon, Image } from "native-base";
-
 import IconFacebook from "@assets/facebook.svg";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 

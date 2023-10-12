@@ -2,8 +2,6 @@ import { useState } from "react";
 import {
   Center,
   HStack,
-  Select,
-  CheckIcon,
   VStack,
   Text,
   TextArea,
@@ -17,7 +15,11 @@ import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { TouchableOpacity } from "react-native";
 
-export function FormCreateReceita() {
+type Props = {
+  onCloseModal: () => void
+}
+
+export function FormCreateReceita({onCloseModal} : Props) {
   const [service, setService] = useState("");
 
   return (
@@ -82,7 +84,7 @@ export function FormCreateReceita() {
           <Text fontSize="md">Valor total</Text>
           <Text fontSize="l">R$ 4,37</Text>
         </VStack>
-        <Button variant="blue" mt={8} w={32} title="Salvar" />
+        <Button variant="blue" mt={8} w={32} title="Salvar" onPress={onCloseModal}/>
       </HStack>
     </Center>
   );

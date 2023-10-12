@@ -1,11 +1,21 @@
-import { Input as InputNB, IInputProps, FormControl } from "native-base";
+import { dateMask } from "@utils/mask";
+import { Input as InputNB, IInputProps } from "native-base";
 
 type Props = IInputProps & {
   errorMenssage?: string | null;
+  onInputMaksChange?: (text: string) => void
+  mask?: 'date' | 'hour'
 };
 
-export function Input({ errorMenssage = null, isInvalid, ...rest }: Props) {
+export function Input({ errorMenssage = null, isInvalid, onInputMaksChange, mask, ...rest }: Props) {
   const invalid = !!errorMenssage || isInvalid;
+
+  function handleChange(text: string) {
+    onInputMaksChange &&
+      mask === 'date' &&
+      onInputMaksChange(dateMask(text))
+      
+  }
 
   return (
       <InputNB
@@ -17,6 +27,7 @@ export function Input({ errorMenssage = null, isInvalid, ...rest }: Props) {
         fontSize="sm"
         color="gray.600"
         fontFamily="body"
+        onChangeText={(text) => handleChange(text)}
         placeholderTextColor="gray.300"
         isInvalid={invalid}
         _invalid={{

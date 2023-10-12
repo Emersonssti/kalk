@@ -5,7 +5,8 @@ import backgroundImg from "@assets/backgroundImage.png";
 import { ButtonFacebook } from "@components/ButtonFacebook";
 import { ButtonGoogle } from "@components/ButtonGoogle";
 import { useNavigation } from "@react-navigation/native";
-import { AuthNavigatorRoutesProps } from "@routes/AuthRoutes";
+
+import { AuthNavigatorRoutesProps } from "src/routes/AppRoutes";
 
 export function Login() {
   const navigation = useNavigation<AuthNavigatorRoutesProps>()
@@ -35,7 +36,7 @@ export function Login() {
             <Text mr="2">Acesse com :</Text>
             <ButtonGoogle onPress={() => navigation.navigate('home')} />
             <Text mr="2">ou</Text>
-            <ButtonFacebook />
+            <ButtonFacebook onPress={() => navigation.navigate('home')}/>
           </Box>
         </Center>
       </Column>

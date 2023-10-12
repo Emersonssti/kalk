@@ -1,16 +1,24 @@
 import { useState } from "react";
-import { Center, HStack, Select, CheckIcon, Text } from "native-base";
+import { HStack, Select, CheckIcon } from "native-base";
 
 import { Input } from "@components/Input";
-import { Button } from "@components/Button";
 
 export function FormAccount() {
+  const [date, setDate] = useState("");
   const [service, setService] = useState("");
 
   return (
-    <Center>
-      <HStack alignItems="center" w={"full"} px={8} space={2}>
-        <Input maxWidth="130" placeholder="Data de Nascimento" />
+    <>
+      <HStack alignItems="flex-end" w={"full"} px={8} space={2}>
+        <Input
+          maxLength={8}
+          value={date}
+          mask={"date"}
+          onChangeText={(text) => setDate(text)}
+          inputMode="numeric"
+          maxWidth="130"
+          placeholder="Data de Nascimento"
+        />
         <Select
           selectedValue={service}
           minWidth="130"
@@ -25,12 +33,12 @@ export function FormAccount() {
           mt={1}
           onValueChange={(itemValue) => setService(itemValue)}
         >
-          <Select.Item label="Masculino" value="ux" />
-          <Select.Item label="Feminino" value="web" />
-          <Select.Item label="Outro" value="cross" />
+          <Select.Item label="Masculino" value="masculino" />
+          <Select.Item label="Feminino" value="feminino" />
+          <Select.Item label="Outro" value="outro" />
         </Select>
       </HStack>
-      <HStack alignItems="center" w={"full"} px={8} mt={4}>
+      <HStack alignItems="center" w={"full"} pr={8} pl={8} mt={4}>
         <HStack
           alignItems="center"
           justifyContent="space-between"
@@ -38,12 +46,12 @@ export function FormAccount() {
           space={2}
           flex={1}
         >
-          <Input maxWidth="100" placeholder="CEP" />
-          <Input maxWidth="150" placeholder="Cidade" />
-          <Input maxWidth="16" placeholder="UF" />
+          <Input maxWidth="100" inputMode="numeric" placeholder="CEP" maxLength={8} />
+          <Input maxWidth="150" placeholder="Cidade" maxLength={20} />
+          <Input maxWidth="16" textTransform="uppercase" placeholder="UF" maxLength={2} />
         </HStack>
       </HStack>
-      <Button variant={"blue"} mt={8} w={32} title="Salvar" />
-    </Center>
+      
+    </>
   );
 }
