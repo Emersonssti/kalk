@@ -1,0 +1,68 @@
+/* ============================================
+   TELA DE LOGIN - Mobile
+   ============================================ */
+
+#screen-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.screen-login__message {
+  color: var(--gray-600);
+  font-size: 1.125rem;
+  margin: 0 0 24px;
+}
+
+.screen-login__image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 16px 0 32px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.screen-login__social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.screen-login__social-label {
+  font-size: 1rem;
+  color: var(--gray-600);
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.screen-login__btn-social {
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.screen-login__btn-social:active {
+  opacity: 0.8;
+  transform: scale(0.96);
+}
+
+.screen-login__btn-social img,
+.screen-login__btn-social svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#36B579">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Kalk - Suas Receitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/screen-home.css">
+  <link rel="stylesheet" href="css/screen-profile.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+  <!-- ========== TELA HOME ========== -->
+  <section id="screen-home" class="screen active app-content" aria-label="Início">
+    <div class="screen-home__greeting">Olá Mateus 🤚</div>
+    <div class="screen-home__hero">
+      <div class="screen-home__hero-content">
+        <h2 class="screen-home__hero-title">Crie suas próprias receitas</h2>
+        <ul class="screen-home__hero-steps">
+          <li>📑 1. Cadastre os ingredientes</li>
+          <li>❤️ 2. Crie suas receitas favoritas</li>
+        </ul>
+        <button type="button" class="btn-kalk btn-kalk--solid screen-home__hero-cta" id="btn-criar-receita-home">Criar Receita</button>
+      </div>
+      <img class="screen-home__hero-illustration" src="https://placehold.co/80x80/26A853/FFFFFF?text=👨‍🍳" alt="">
+    </div>
+    <div class="screen-home__block">
+      <div class="screen-home__block-header">
+        <h3 class="screen-home__block-title">Todas as Receitas</h3>
+        <a href="#" class="screen-home__block-link">Ver mais</a>
+      </div>
+      <div class="screen-home__card-list scroll-x">
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Bolo de chocolate" data-preco="R$ 45,90" data-descricao="Bolo fofinho com cobertura de ganache e recheio de brigadeiro. Rendimento: 12 porções." data-extra="Farinha 300g • Ovo 3 un. • Chocolate 200g • Açúcar 2 xíc.">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Bolo de chocolate</p><p class="screen-home__card-price">R$ 45,90</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Torta de frango" data-preco="R$ 28,50" data-descricao="Torta cremosa de frango com massa caseira. Ideal para o almoço de domingo." data-extra="Frango 500g • Requeijão 1 pct • Massa folhada 1 un.">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Torta de frango</p><p class="screen-home__card-price">R$ 28,50</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Cookie americano" data-preco="R$ 12,00" data-descricao="Cookies crocantes por fora e macios por dentro, com gotas de chocolate." data-extra="Farinha 250g • Manteiga 100g • Açúcar mascavo • Chocolate 150g">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Cookie americano</p><p class="screen-home__card-price">R$ 12,00</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Suco verde detox" data-preco="R$ 8,50" data-descricao="Suco com couve, maçã, limão e gengibre. Refrescante e nutritivo." data-extra="Couve 2 folhas • Maçã 1 un. • Limão 1 un. • Gengibre 1 cm">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Suco verde detox</p><p class="screen-home__card-price">R$ 8,50</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="screen-home__block">
+      <div class="screen-home__block-header">
+        <h3 class="screen-home__block-title screen-home__block-title--highlight">⏱ Top 10 receitas mais fáceis</h3>
+        <a href="#" class="screen-home__block-link">Ver mais</a>
+      </div>
+      <div class="screen-home__card-list scroll-x">
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Omelete simples" data-preco="R$ 6,00" data-descricao="Omelete rápido com queijo e tomate. Perfeito no café da manhã." data-extra="Ovos 2 un. • Queijo 50g • Tomate 1 un.">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Omelete simples</p><p class="screen-home__card-price">R$ 6,00</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Pão na chapa" data-preco="R$ 4,50" data-descricao="Pão de forma com manteiga na chapa. Clássico brasileiro." data-extra="Pão de forma 2 fatias • Manteiga 1 col. sopa">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Pão na chapa</p><p class="screen-home__card-price">R$ 4,50</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="receita" data-titulo="Mingau de aveia" data-preco="R$ 5,20" data-descricao="Mingau cremoso com banana e canela. Aquece no frio." data-extra="Aveia 4 col. sopa • Leite 200ml • Banana 1 un.">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Mingau de aveia</p><p class="screen-home__card-price">R$ 5,20</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="screen-home__block">
+      <div class="screen-home__block-header">
+        <h3 class="screen-home__block-title">Todos os Ingredientes</h3>
+        <a href="#" class="screen-home__block-link">Ver mais</a>
+      </div>
+      <div class="screen-home__card-list scroll-x">
+        <a href="#" class="screen-home__card js-card-item" data-tipo="ingrediente" data-titulo="Farinha de trigo" data-preco="R$ 4,89" data-descricao="Farinha de trigo tipo 1, pacote 1kg. Ideal para bolos e massas." data-extra="Marca: Dona Benta • 1 kg">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Farinha de trigo</p><p class="screen-home__card-price">R$ 4,89</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="ingrediente" data-titulo="Leite integral" data-preco="R$ 5,49" data-descricao="Leite integral UHT 1L. Validade longa." data-extra="Marca: Parmalat • 1 L">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Leite integral</p><p class="screen-home__card-price">R$ 5,49</p></div>
+        </a>
+        <a href="#" class="screen-home__card js-card-item" data-tipo="ingrediente" data-titulo="Ovos brancos" data-preco="R$ 18,90" data-descricao="Cartela com 30 ovos brancos tipo grande." data-extra="30 unidades • fresco">
+          <div class="screen-home__card-image"></div>
+          <div class="screen-home__card-body"><p class="screen-home__card-title">Ovos brancos</p><p class="screen-home__card-price">R$ 18,90</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TELA PERFIL ========== -->
+  <section id="screen-profile" class="screen app-content" aria-label="Perfil">
+    <header class="screen-profile__header">
+      <img class="screen-profile__photo" id="profile-photo" src="https://github.com/ramonnrocha.png" alt="Foto do usuário">
+      <p class="screen-profile__name">Mateus Teixeira</p>
+    </header>
+    <div class="screen-profile__block">
+      <div class="screen-profile__block-header">
+        <h3 class="screen-profile__block-title">Suas Receitas</h3>
+        <a href="#" class="screen-profile__block-link">Filtrar</a>
+      </div>
+      <div class="screen-profile__grid">
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="receita" data-titulo="Bolo de cenoura" data-preco="R$ 22,00" data-descricao="Bolo de cenoura com cobertura de chocolate. Receita da vovó." data-extra="Cenoura 3 un. • Farinha 2 xíc. • Ovos 3 un.">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Bolo de cenoura</p><p class="screen-profile__card-price">R$ 22,00</p></div>
+        </a>
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="receita" data-titulo="Strogonoff" data-preco="R$ 38,00" data-descricao="Strogonoff de frango com creme de leite e champignon." data-extra="Frango 600g • Creme de leite 2 latas • Champignon 1 pct">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Strogonoff</p><p class="screen-profile__card-price">R$ 38,00</p></div>
+        </a>
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="receita" data-titulo="Brownie" data-preco="R$ 35,00" data-descricao="Brownie de chocolate com nozes. Borda crocante e centro macio." data-extra="Chocolate 300g • Manteiga 150g • Ovos 3 un. • Nozes 100g">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Brownie</p><p class="screen-profile__card-price">R$ 35,00</p></div>
+        </a>
+      </div>
+    </div>
+    <div class="screen-profile__block">
+      <div class="screen-profile__block-header">
+        <h3 class="screen-profile__block-title">Seus Ingredientes</h3>
+        <a href="#" class="screen-profile__block-link">Filtrar</a>
+      </div>
+      <div class="screen-profile__grid">
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="ingrediente" data-titulo="Chocolate 70%" data-preco="R$ 14,90" data-descricao="Tablete de chocolate amargo 70% cacau, 100g." data-extra="Marca: Nestlé • 100 g">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Chocolate 70%</p><p class="screen-profile__card-price">R$ 14,90</p></div>
+        </a>
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="ingrediente" data-titulo="Manteiga" data-preco="R$ 11,90" data-descricao="Manteiga com sal, tablete 200g." data-extra="Marca: Qualy • 200 g">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Manteiga</p><p class="screen-profile__card-price">R$ 11,90</p></div>
+        </a>
+        <a href="#" class="screen-profile__card js-card-item" data-tipo="ingrediente" data-titulo="Açúcar refinado" data-preco="R$ 3,99" data-descricao="Açúcar refinado, pacote 1kg." data-extra="1 kg">
+          <div class="screen-profile__card-image"></div>
+          <div class="screen-profile__card-body"><p class="screen-profile__card-title">Açúcar refinado</p><p class="screen-profile__card-price">R$ 3,99</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MENU INFERIOR ========== -->
+  <nav id="menu" class="menu is-visible" aria-label="Navegação principal">
+    <div class="menu__bar">
+      <button type="button" class="menu__item menu__item--home is-active" id="menu-home" aria-label="Início">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      </button>
+      <button type="button" class="menu__item menu__item--add" id="menu-add" aria-label="Criar receita ou ingrediente">
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.75C11.0254 3.75 3.75 11.0254 3.75 20C3.75 28.9746 11.0254 36.25 20 36.25C28.9746 36.25 36.25 28.9746 36.25 20C36.25 11.0254 28.9746 3.75 20 3.75ZM21.25 15C21.25 14.3096 20.6904 13.75 20 13.75C19.3096 13.75 18.75 14.3096 18.75 15V18.75H15C14.3096 18.75 13.75 19.3096 13.75 20C13.75 20.6904 14.3096 21.25 15 21.25H18.75V25C18.75 25.6904 19.3096 26.25 20 26.25C20.6904 26.25 21.25 25.6904 21.25 25V21.25H25C25.6904 21.25 26.25 20.6904 26.25 20C26.25 19.3096 25.6904 18.75 25 18.75H21.25V15Z" fill="#2196F3"/></svg>
+      </button>
+      <button type="button" class="menu__item menu__item--profile" id="menu-profile" aria-label="Perfil">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== MODAIS ========== -->
+  <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+
+  <!-- Modal Detalhes do item -->
+  <div id="modal-detalhe" class="modal-container" role="dialog" aria-labelledby="modal-detalhe-title" aria-modal="true">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-detalhe-title">Detalhes</h2>
+      <button type="button" class="modal-close" aria-label="Fechar" data-close="modal-detalhe">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="detalhe-item">
+        <div class="detalhe-item__imagem"></div>
+        <p class="detalhe-item__tipo" id="detalhe-tipo"></p>
+        <h3 class="detalhe-item__titulo" id="detalhe-titulo"></h3>
+        <p class="detalhe-item__preco" id="detalhe-preco"></p>
+        <p class="detalhe-item__descricao" id="detalhe-descricao"></p>
+        <p class="detalhe-item__extra modal-label" id="detalhe-extra-label"></p>
+        <p class="detalhe-item__extra-texto" id="detalhe-extra"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-dados" class="modal-container" role="dialog" aria-labelledby="modal-dados-title" aria-modal="true">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <div class="modal-header modal-header--center">
+      <h2 class="modal-title" id="modal-dados-title">Dados Necessários</h2>
+      <button type="button" class="modal-close" aria-label="Fechar" data-close="modal-dados">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <img class="modal-user-photo" id="modal-user-photo" src="https://github.com/ramonnrocha.png" alt="Foto do usuário">
+        <button type="button" class="modal-link" id="btn-alterar-foto">Alterar Foto</button>
+      </div>
+      <label class="modal-label">Data de Nascimento</label>
+      <input type="text" class="modal-input" id="input-data-nasc" placeholder="dd/mm/aaaa" maxlength="10" inputmode="numeric">
+      <label class="modal-label">Gênero</label>
+      <select class="modal-select" id="select-genero">
+        <option value="">Gênero</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+      <div class="modal-row">
+        <div style="flex: 1; min-width: 0;">
+          <label class="modal-label">CEP</label>
+          <input type="text" class="modal-input" id="input-cep" placeholder="CEP" maxlength="9" inputmode="numeric">
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <label class="modal-label">Cidade</label>
+          <input type="text" class="modal-input" id="input-cidade" placeholder="Cidade" maxlength="20">
+        </div>
+        <div style="flex: 0 0 60px;">
+          <label class="modal-label">UF</label>
+          <input type="text" class="modal-input" id="input-uf" placeholder="UF" maxlength="2" style="text-transform: uppercase;">
+        </div>
+      </div>
+      <button type="button" class="btn-kalk btn-kalk--blue" id="btn-salvar-dados" style="width: 100%;">Salvar</button>
+    </div>
+  </div>
+
+  <div id="modal-criar" class="modal-container" role="dialog" aria-labelledby="modal-criar-title" aria-modal="true">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-criar-title">Criar</h2>
+      <div class="modal-tabs">
+        <button type="button" class="btn-kalk btn-kalk--blue" id="modal-tab-receita">Receita</button>
+        <button type="button" class="btn-kalk btn-kalk--outline" id="modal-tab-ingrediente">Ingrediente</button>
+      </div>
+      <button type="button" class="modal-close" aria-label="Fechar" data-close="modal-criar">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="form-receita">
+        <label class="modal-label">Título da Receita</label>
+        <input type="text" class="modal-input" placeholder="Título da Receita">
+        <label class="modal-label">Descrição</label>
+        <textarea class="modal-textarea" placeholder="Digite aqui.."></textarea>
+        <label class="modal-label">Ingredientes</label>
+        <div class="modal-ingrediente-item"><span>Farinha de trigo - 300g</span><span>R$ 2,57</span></div>
+        <div class="modal-ingrediente-item"><span>Ovo - 3 uni.</span><span>R$ 1,80</span></div>
+        <button type="button" class="modal-link">➕ Adicionar</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+          <div><span style="font-size: 0.875rem; color: var(--gray-500);">Valor total</span><p style="margin: 4px 0 0; font-size: 1.25rem; font-weight: 700;">R$ 4,37</p></div>
+          <button type="button" class="btn-kalk btn-kalk--blue" id="btn-salvar-receita">Salvar</button>
+        </div>
+      </div>
+      <div id="form-ingrediente" style="display: none;">
+        <label class="modal-label">Título do ingrediente</label>
+        <input type="text" class="modal-input" placeholder="Digite o título">
+        <label class="modal-label">Descrição</label>
+        <textarea class="modal-textarea" placeholder="Digite aqui.."></textarea>
+        <label class="modal-label">Especificações</label>
+        <div style="margin-bottom: 16px;"><span style="font-size: 0.875rem; color: var(--gray-500);">Valor unitário</span><p style="margin: 4px 0 0; font-size: 1.25rem; font-weight: 700;">R$ 0,00</p></div>
+        <div class="modal-row">
+          <div style="flex: 1; min-width: 0;"><label class="modal-label">Marca</label><select class="modal-select"><option value="">Marca</option><option>Opção 1</option><option>Opção 2</option></select></div>
+          <div style="flex: 0 0 100px;"><label class="modal-label">Quantidade</label><input type="text" class="modal-input" placeholder="Qtd"></div>
+          <div style="flex: 1; min-width: 0;"><label class="modal-label">Medida</label><select class="modal-select"><option value="">Medida</option><option>Kilo</option><option>Grama</option><option>Unidade</option></select></div>
+        </div>
+        <button type="button" class="btn-kalk btn-kalk--blue" id="btn-salvar-ingrediente" style="width: 100%;">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <input type="file" id="input-file-photo" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden;">
+
+  <script src="js/app.js"></script>
+</body>
+</html>

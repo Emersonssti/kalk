@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#36B579">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Login - Kalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/screen-login.css">
+</head>
+<body>
+
+  <section id="screen-login" class="screen active" aria-label="Login">
+    <p class="screen-login__message">É um prazer te ter aqui!</p>
+    <img class="screen-login__image" src="https://placehold.co/280x200/36B579/FFFFFF?text=Chefes+de+cozinha" alt="Chefes de cozinha">
+    <div class="screen-login__social">
+      <span class="screen-login__social-label">Acesse com:</span>
+      <button type="button" class="screen-login__btn-social" id="btn-google" title="Entrar com Google" aria-label="Entrar com Google">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="">
+      </button>
+      <span>ou</span>
+      <button type="button" class="screen-login__btn-social" id="btn-facebook" title="Entrar com Facebook" aria-label="Entrar com Facebook">
+        <svg viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      function irParaHome() {
+        window.location.href = 'home.html';
+      }
+      document.getElementById('btn-google').addEventListener('click', irParaHome);
+      document.getElementById('btn-facebook').addEventListener('click', irParaHome);
+    })();
+  </script>
+</body>
+</html>
